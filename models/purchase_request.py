@@ -45,8 +45,6 @@ class PurchaseRequestOrder(models.Model):
                                   default=lambda self: self.env.company.currency_id.id)
     order_line = fields.One2many('purchase.request.order.line', 'order_id', string='Order Lines',
                                  copy=True)
-    # vendor_line = fields.One2many('vendor.line', 'vendor_id', string='Vendor Lines',
-    #                               copy=True)
     date_planned = fields.Datetime(
         string='Expected Arrival', index=True, copy=False, compute='_compute_date_planned', store=True, readonly=False,
         tracking=True,
